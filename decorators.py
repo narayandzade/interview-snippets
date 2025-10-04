@@ -1,44 +1,63 @@
-# #decorator
+# # #decorator
 
 
-# def decorator(func):
+# # def decorator(func):
+# #     def wrapper(*args):
+# #         if "admin" in args:
+# #             func(*args)
+# #         else:
+# #             print("access denied")
+# #     return wrapper
+
+
+# # @decorator
+# # def hello(user):
+# #     print("Welcome to dahsboard")
+
+
+
+# # hello("admin")
+
+
+
+
+
+
+
+# def decorator_func(fun):
 #     def wrapper(*args):
-#         if "admin" in args:
-#             func(*args)
+#         if 'admin' in args:
+#             return fun(args)
 #         else:
-#             print("access denied")
+#             print("invalid creds")
 #     return wrapper
 
 
-# @decorator
-# def hello(user):
-#     print("Welcome to dahsboard")
 
+# @decorator_func
+# def hello(admin):
+#     print("welcome")
 
-
-# hello("admin")
-
+# hello('admin')
 
 
 
 
 
-
-def decorator_func(fun):
-    def wrapper(*args):
+def mydecorator(func):
+    def wrapar(*args):
         if 'admin' in args:
-            return fun(args)
+            return func(*args) 
         else:
-            print("invalid creds")
-    return wrapper
+            print("worng")
+    return wrapar
 
 
 
-@decorator_func
-def hello(admin):
+
+@mydecorator
+def hello(user):
     print("welcome")
 
-hello('admin')
 
-
-
+hello('admins')
